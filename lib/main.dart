@@ -82,10 +82,13 @@ dynamic _formKey = GlobalKey<FormState>();
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Icon(
-                Icons.person_outline,
-                size: 120.0,
-                color: Colors.green,
+              Padding(
+                padding: const EdgeInsets.symmetric( vertical: 40),
+                child: Icon( 
+                  Icons.person_outline,
+                  size: 120.0,
+                  color: Colors.green,
+                ),
               ),
               TextFormField(
                 validator:(value) {
@@ -122,20 +125,25 @@ dynamic _formKey = GlobalKey<FormState>();
                 style: TextStyle(color: Colors.green, fontSize: 25),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                padding: const EdgeInsets.fromLTRB(0.0,30,0 , 15),
                 child: Container(
                   height: 50.0,
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     onPressed: (){
                       if(_formKey.currentState!.validate()){
                         calculate();
                       };
-                    },
+                    }, 
                     child: Text(
                       ' Calcular',
                       style: TextStyle(color: Colors.white, fontSize: 25.0),
                     ),
-                    color: Colors.green,
+                    style: ElevatedButton.styleFrom( 
+                        primary: Colors.green,
+                        shape: RoundedRectangleBorder( 
+                            borderRadius: BorderRadius.circular(20)
+                          ) 
+                    ),
                   ),
                 ),
               ),
